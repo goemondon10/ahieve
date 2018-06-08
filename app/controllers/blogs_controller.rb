@@ -1,6 +1,10 @@
 class BlogsController < ApplicationController
   
- before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery :except => ["destroy"]
+
+  def top
+  end  
  
   def index
     @blogs = Blog.all
@@ -50,14 +54,13 @@ class BlogsController < ApplicationController
     render :new if @blog.invalid?
   end
   
-  private
-  
+private
   def blog_params
     params.require(:blog).permit(:title, :content)
   end
   
   def set_blog
-      @blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])
   end
   
 end

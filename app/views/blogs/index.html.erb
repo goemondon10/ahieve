@@ -1,24 +1,34 @@
+<div class="index_title">
 <h1>ブログ一覧</h1>
+</div>
 
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-  </tr>
 
+<div class="index_content"> 
+    <h2>タイトル</h2>
+    <h2>内容</h2>
+  <div>
+  <br>
+  
 <% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-    <td><%= link_to 'ブログを投稿する', new_blog_path %></td>
-    <td><%= link_to 'ブログを確認する', blog_path(blog.id) %></td>
-    <td><%= link_to 'ブログを編集する', edit_blog_path(blog.id) %></td>
-    <td><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete %></td>
-　</tr>
+
+    <div class="index_blog">
+      <%= blog.title %><br>
+      <%= blog.content %>
+    </div>
+    <br>
+    
+    <div class="index_khs">
+      <%= link_to '確認', blog_path(blog.id), class: "btn btn-success btn-xs" %>
+      <%= link_to '編集', edit_blog_path(blog.id), class: "btn btn-warning btn-xs" %>
+      <%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除してもよいですか？' }, class: "btn btn-danger btn-xs" %>
+　  </div>
+　  <br>
+
+
 <% end %>
-</table>
+
 
 <br>
-
-<%= link_to '新しくブログを投稿する', new_blog_path %>
-
+<div class="index_newblog">
+  <p><%= link_to '新しくブログを投稿する', new_blog_path, class: "btn btn-primary btn-lg" %></p>
+</div>
