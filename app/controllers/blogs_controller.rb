@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :login_check, only: [:new, :edit, :show, :destroy]
   protect_from_forgery :except => ["destroy"]
 
   def top
@@ -28,15 +29,15 @@ class BlogsController < ApplicationController
   end
   
   def show
-    @blog = Blog.find(params[:id])
+    # @blog = Blog.find(params[:id]) # before_action ですでに実行しているため
   end
 
   def edit
-    @blog = Blog.find(params[:id])
+    # @blog = Blog.find(params[:id])
   end
   
   def update
-    @blog = Blog.find(params[:id])
+    # @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
       redirect_to blogs_path, notice: "ブログを編集しました！"
     else
@@ -54,7 +55,7 @@ class BlogsController < ApplicationController
     render :new if @blog.invalid?
   end
   
-private
+ private
   def blog_params
     params.require(:blog).permit(:title, :content)
   end
@@ -63,6 +64,16 @@ private
     @blog = Blog.find(params[:id])
   end
   
+  def login_check
+    if logged_in?
+    else
+      redirect_to new_session_path
+    end
+    
+  end
+  
+  
+ 
 end
 
   
