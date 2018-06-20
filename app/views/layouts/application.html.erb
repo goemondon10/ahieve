@@ -2,7 +2,7 @@
 <html lang="ja">
   
   <head>
-  <title>課題　ログイン機能追加</title>
+  <title>課題　ブログお気に入り機能追加</title>
   
   　<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
   <body>
     <header>
       <div class="alert alert-info text-center mb-0 rounded-0 alert-dismissible fade show">
-      課題　ログイン機能追加
+      アソシエーション課題　ブログお気に入り機能追加
         <button class="close" data-dismiss="alert">
           &times;
         </button>
@@ -58,12 +58,10 @@
     <% end %>
 
     <% if logged_in? %>
+      <%= link_to "Blog一覧", blogs_path %>
       <%= link_to "Profile", user_path(current_user.id) %>
-  
       <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    
-  
-    <% else %>
+      <% else %>
       <%= link_to "Sign up", new_user_path %>
       <%= link_to "Login", new_session_path %>
     <% end %>
