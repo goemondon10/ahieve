@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { host: 'safe-sea-35455.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'frozen-shore-11624.herokuapp.com/' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
@@ -12,7 +12,6 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
-end
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -102,3 +101,4 @@ end
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+

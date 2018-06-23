@@ -23,6 +23,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する。#省略
     if @blog.save
+      BlogMailer.blog_mail(@blog).deliver
       redirect_to new_blog_path, notice: "登録を完了しました！"
     else
       render 'new'
