@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   get 'sessions/new'
 
   root "blogs#top"
@@ -12,4 +13,9 @@ Rails.application.routes.draw do
   resources :users
   resources :favorites, only: [:create, :destroy]
   
+if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/inbox"
+end  
+
 end
+

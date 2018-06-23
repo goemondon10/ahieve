@@ -1,4 +1,8 @@
 Rails.application.configure do
+
+  config.action_mailer.default_url_options = { host: 'dive-into-code-kazu3kazu3.c9users.io/' }
+  config.action_mailer.delivery_method = :letter_opener
+
   
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"  
 
@@ -55,4 +59,5 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
 end
