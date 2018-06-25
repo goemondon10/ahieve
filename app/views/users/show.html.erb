@@ -2,6 +2,12 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.image %>
+</p>
+
+
 <h3>お気に入り登録ページ</h3>
 
 <% @favorites_blogs.each do |blog| %>
@@ -16,5 +22,6 @@
 </div>
 <br>
 <br>
+
 <hr>
 <% end %>

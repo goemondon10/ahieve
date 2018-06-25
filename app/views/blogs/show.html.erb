@@ -3,6 +3,11 @@
 <p>内容: <%= @blog.content %></p>
 <p>ユーザー名: <%= @blog.user.name %></p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @blog.image %>
+</p>
+
 
 <% unless @blog.user == current_user %>
   <% if @favorite.present? %>

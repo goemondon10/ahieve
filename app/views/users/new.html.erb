@@ -24,7 +24,14 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 
+<div>
+  <%= f.label :image %>
+  <%= f.file_field :image, id: :user_image %>
+</div>
+
+<br>
+
   <%= f.submit "Create my account" %>
 <% end %>
-
+<br>
 <%= link_to "ブログ一覧画面へ！", blogs_path, class: "btn btn-primary btn-md" %>
