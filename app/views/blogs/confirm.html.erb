@@ -1,11 +1,16 @@
+<h1>確認画面</h1>
+
 <h3>以下の内容で、送信する。</h3>
+
+<p>タイトル:<%= @blog.title %></p>
+<p>内容:<%= @blog.content %></p>
+<%= image_tag(@blog.image) %>
 
 <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
-
-  <p>タイトル:<%= @blog.title %></p>
-  <p>内容:<%= @blog.content %></p>
+  <%= form.hidden_field :image_cache %>
+  
   <%= form.submit  "登録する" %>
 <% end %>
 
@@ -14,5 +19,3 @@
   <%= form.hidden_field :content %>
   <%= form.submit "もどる", name: 'back' %>
 <% end %>
-
- 
