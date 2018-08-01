@@ -1,9 +1,9 @@
-<h1>確認画面</h1>
+<h1>確認</h1>
 
-<h3>以下の内容で、送信する。</h3>
+<h3>以下の内容で、送信!!</h3>
 
 <p>タイトル:<%= @blog.title %></p>
-<p>内容:<%= @blog.content %></p>
+<p>コメント内容:<%= @blog.content %></p>
 <%= image_tag(@blog.image) %>
 
 <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
@@ -11,7 +11,7 @@
   <%= form.hidden_field :content %>
   <%= form.hidden_field :image_cache %>
   
-  <%= form.submit  "登録する" %>
+  <%= form.submit  " 登 録 " %>
 <% end %>
 
 <%= form_with(model: @blog, url: new_blog_path, local: true, method: 'get') do |form| %>

@@ -1,20 +1,12 @@
 <div class="index_title">
-<h1>ブログ一覧</h1>
+<h1>All postings list</h1>
 </div>
 
 
-<div class="index_content"> 
-    <h2>タイトル</h2>
-    <h2>内容</h2>
-  <div>
-  <br>
-  
 <% @blogs.each do |blog| %>
 
     <div class="index_blog">
-      <div>
-      <%= blog.title %>
-      </div>
+
       <br>
       <div>
       <%= blog.content %>
@@ -32,12 +24,12 @@
       <%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除してもよいですか？' }, class: "btn btn-danger btn-xs" %>
 　  </div>
 　  <br>
-
+　  <br>
 
 <% end %>
 
 
 <br>
 <div class="index_newblog">
-  <p><%= link_to '新しくブログを投稿する', new_blog_path, class: "btn btn-primary btn-lg" %></p>
+  <p><%= link_to '新規投稿', new_blog_path, class: "btn btn-primary btn-lg" %></p>
 </div>

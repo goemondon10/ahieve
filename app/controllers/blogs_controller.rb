@@ -21,17 +21,17 @@ class BlogsController < ApplicationController
   
   def create
     @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する。#省略
+    @blog.user_id = current_user.id 
     if @blog.save
       BlogMailer.blog_mail(@blog).deliver
-      redirect_to new_blog_path, notice: "登録を完了しました！"
+      redirect_to new_blog_path, notice: "登録完了！"
     else
       render 'new'
     end
   end
   
   def show
-    # @blog = Blog.find(params[:id]) # before_action ですでに実行しているため
+    # @blog = Blog.find(params[:id]) 
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
@@ -42,7 +42,7 @@ class BlogsController < ApplicationController
   def update
     # @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "ブログを編集しました！"
+      redirect_to blogs_path, notice: "編集完了！"
     else
       render 'edit'
     end
@@ -50,12 +50,12 @@ class BlogsController < ApplicationController
   
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice: "ブログを削除しました！"
+    redirect_to blogs_path, notice: "削除完了！"
   end
   
   def confirm
     @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する。#省略
+    @blog.user_id = current_user.id 
     render :new if @blog.invalid?
   end
   

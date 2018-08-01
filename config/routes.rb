@@ -18,5 +18,8 @@ if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/inbox"
 end  
 
+
+get '*path', controller: 'application', action: 'render_404'
+
 end
 

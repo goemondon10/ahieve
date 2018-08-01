@@ -8,20 +8,25 @@
 </p>
 
 
-<h3>お気に入り登録ページ</h3>
+<h3>お気に入り登録</h3>
 
 <% @favorites_blogs.each do |blog| %>
 <div>
-  ユーザー名：<%= blog.user.name %>
+  投稿者：<%= blog.user.name %>
 </div>
 <div>
   タイトル：<%= blog.title %> 
 </div>
 <div>
-  内容：<%= blog.content %>
+  コメント内容：<%= blog.content %>
 </div>
 <br>
 <br>
+
+<div>
+  <strong>Image:</strong>
+  <%= image_tag blog.image %>
+</div>
 
 <hr>
 <% end %>

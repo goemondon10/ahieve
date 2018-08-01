@@ -2,7 +2,7 @@
 <html lang="ja">
   
   <head>
-  <title>課題　画像UPLOAD機能作成</title>
+  <title>PHASE3 大課題</title>
   
   　<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +15,7 @@
 
     <style>
        .cover {
-         background-image: url(/ushiro.JPG);
+         background-image: url(/FUJIYAMA.jpg);
          background-size: cover;
          }
     </style>
@@ -24,7 +24,7 @@
   <body>
     <header>
       <div class="alert alert-info text-center mb-0 rounded-0 alert-dismissible fade show">
-      画像UPLOADシステムシリーズ課題  画像UPLOAD機能　追加
+      PHASE 3    大課題
         <button class="close" data-dismiss="alert">
           &times;
         </button>
@@ -32,7 +32,7 @@
       
       <div class="container">
         <nav class="navbar navbar-expand-sm navbar-light">
-          <a href="" class="navbar-brand">SELECT</a>
+          <a href="https://dive-into-code-kazu3kazu3.c9users.io/" class="navbar-brand">SELECT</a>
           
           <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
             <span class="navbar-toggler-icon"></span>
@@ -40,17 +40,18 @@
           
           <div id="menu" class="collapse navbar-collapse">
             <ul class="navbar-nav">
-              <li class="nav-item"><a href="" class="nav-link">VIDE0</a></a></li>
-              <li class="nav-item"><a href="" class="nav-link">PHOTO</a></li>
-              <li class="nav-item"><a href="" class="nav-link">MUSIC</a></li>
+              <li class="nav-item"><a href="https://dive-into-code-kazu3kazu3.c9users.io/blogs" class="nav-link">All postings list</a></a></li>
+              <li class="nav-item"><a href="https://dive-into-code-kazu3kazu3.c9users.io/users/new" class="nav-link">Sign up</a></li>
+              <li class="nav-item"><a href="https://dive-into-code-kazu3kazu3.c9users.io/sessions/new" class="nav-link">Login</a></li>
+              <li class="nav-item"><a href="" class="nav-link">Making</a></li>
             </ul>
           </div>
         </nav>
       </div>
       
-      <div class="cover text-white text-center b py-5">
-        <h1 class="display-4 mb-4">HITORIGOTO APP</h1>
-        <a href="" class="btn btn-primary btn-lg">Get It Now!</a>
+      <div class="cover text-white text-center b py-6">
+        <h1 class="display-2 mb-4">JAPAN</h1>
+      </div>
     </header>
     
     <% flash.each do |key, value| %>
@@ -58,12 +59,12 @@
     <% end %>
 
     <% if logged_in? %>
-      <%= link_to "Blog一覧", blogs_path %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+      <%= link_to "All postings list", blogs_path, class: "btn btn-info btn-xs" %>
+      <%= link_to "Profile", user_path(current_user.id), class: "btn btn-default btn-xs" %>
+      <%= link_to "Logout", session_path(current_user.id), class: "btn btn-danger btn-xs", method: :delete %>
       <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
+      <%= link_to "Sign up", new_user_path, class: "btn btn-info btn-md" %>
+      <%= link_to "Login", new_session_path, class: "btn btn-info btn-md" %>
     <% end %>
 
     <%= yield %>

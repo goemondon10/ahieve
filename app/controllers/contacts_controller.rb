@@ -28,7 +28,6 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        ContactMailer.contact_mail(@contact).deliver
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
         format.json { render :show, status: :created, location: @contact }
       else
@@ -61,9 +60,6 @@ class ContactsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  
-  
 
   private
     # Use callbacks to share common setup or constraints between actions.

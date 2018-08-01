@@ -1,4 +1,6 @@
-<h1>Sign up</h1>
+<div class="cover text-white text-center b py-5">
+  <h1 class="display-4 mb-4">welcome！</h1>
+
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -34,4 +36,4 @@
   <%= f.submit "Create my account" %>
 <% end %>
 <br>
-<%= link_to "ブログ一覧画面へ！", blogs_path, class: "btn btn-primary btn-md" %>
+<%= link_to "All postings list！", blogs_path, class: "btn btn-primary btn-md" %>
